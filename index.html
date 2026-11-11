@@ -56,16 +56,47 @@
         const navModules = document.getElementById('nav-modules');
         const loginContainer = document.getElementById('login-container');
 
+        // Handle incoming token_hash from magic link redirect
+        async function handleAuthRedirect() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tokenHash = urlParams.get('token_hash');
+            const type = urlParams.get('type');
+
+            if (tokenHash && type) {
+                authStatus.textContent = 'Verifying login...';
+                const { data, error } = await supabase.auth.verifyOtp({
+                    token_hash: tokenHash,
+                    type: type
+                });
+
+                if (error) {
+                    authStatus.textContent = 'Verification failed';
+                    messageDiv.textContent = error.message;
+                    messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
+                } else if (data?.session) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    updateUIAfterLogin(data.session);
+                }
+            } else {
+                checkSession();
+            }
+        }
+
         // Check active session on load
         async function checkSession() {
             const { data: { session } } = await supabase.auth.getSession();
             if (session) {
-                authStatus.textContent = `Signed in: ${session.user.email}`;
-                loginContainer.innerHTML = `<p class="text-green-600 font-medium">You are securely authenticated.</p>`;
-                navModules.classList.remove('hidden');
+                updateUIAfterLogin(session);
             }
         }
-        checkSession();
+
+        function updateUIAfterLogin(session) {
+            authStatus.textContent = `Signed in: ${session.user.email}`;
+            loginContainer.innerHTML = `<p class="text-green-600 font-medium">You are securely authenticated.</p>`;
+            navModules.classList.remove('hidden');
+        }
+
+        handleAuthRedirect();
 
         // Handle Magic Link Login
         loginBtn.addEventListener('click', async () => {
