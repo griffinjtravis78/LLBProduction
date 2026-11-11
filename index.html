@@ -79,7 +79,12 @@
             loginBtn.disabled = true;
             loginBtn.textContent = 'Sending link...';
 
-            const { error } = await supabase.auth.signInWithOtp({ email });
+            const { error } = await supabase.auth.signInWithOtp({ 
+                email,
+                options: {
+                    emailRedirectTo: 'https://griffinjtravis78.github.io/LLBProduction/'
+                }
+            });
 
             if (error) {
                 messageDiv.textContent = error.message;
