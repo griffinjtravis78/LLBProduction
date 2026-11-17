@@ -124,6 +124,32 @@
         const form = document.getElementById('module-1-form');
         const messageDiv = document.getElementById('message');
 
+        // Load existing saved data on page load
+        async function loadExistingData() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) return;
+
+            const { data, error } = await supabase
+                .from('modules_data')
+                .select('payload')
+                .eq('tenant_id', session.user.id)
+                .eq('module_number', 1.0)
+                .maybeSingle();
+
+            if (data && data.payload) {
+                const p = data.payload;
+                if (p.legal_name) document.getElementById('legal-name').value = p.legal_name;
+                if (p.street_address) document.getElementById('street-address').value = p.street_address;
+                if (p.city) document.getElementById('city').value = p.city;
+                if (p.state) document.getElementById('state').value = p.state;
+                if (p.zip) document.getElementById('zip').value = p.zip;
+                if (p.objectives) document.getElementById('objectives').value = p.objectives;
+            }
+        }
+
+        loadExistingData();
+
+        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -134,20 +160,32 @@
                 return;
             }
 
-            const formData = {
-                user_id: session.user.id,
+            const payloadData = {
                 legal_name: document.getElementById('legal-name').value.trim(),
                 street_address: document.getElementById('street-address').value.trim(),
                 city: document.getElementById('city').value.trim(),
                 state: document.getElementById('state').value,
                 zip: document.getElementById('zip').value.trim(),
                 objectives: document.getElementById('objectives').value.trim(),
-                updated_at: new Date()
+                updated_at: new Date().toISOString()
             };
 
-            // Save logic to Supabase table can be wired here or via upsert
-            messageDiv.textContent = 'Module 1 data saved successfully!';
-            messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+            const { error } = await supabase
+                .from('modules_data')
+                .upsert({
+                    tenant_id: session.user.id,
+                    module_number: 1.0,
+                    payload: payloadData,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'tenant_id,module_number' });
+
+            if (error) {
+                messageDiv.textContent = 'Error saving data: ' + error.message;
+                messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
+            } else {
+                messageDiv.textContent = 'Module 1.0 data saved successfully to database!';
+                messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+            }
         });
     </script>
 </body>
