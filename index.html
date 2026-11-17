@@ -9,7 +9,10 @@
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between">
     <header class="bg-white shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-blue-900">Life's Legacy Blueprint</h1>
+            <div class="flex items-center space-x-3">
+                <img src="LLB.jpeg" alt="LLB Logo" class="h-10 w-10 object-contain rounded-full">
+                <h1 class="text-xl font-bold text-blue-900">Life's Legacy Blueprint</h1>
+            </div>
             <div id="auth-status" class="text-sm font-medium text-gray-600">Not signed in</div>
         </div>
     </header>
@@ -29,12 +32,51 @@
             <div id="message" class="mt-4 text-sm font-medium"></div>
 
             <div id="nav-modules" class="mt-8 hidden border-t border-gray-200 pt-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3">Your Legacy Modules</h3>
-                <ul class="space-y-2">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Your Legacy Modules</h3>
+                <ul class="space-y-3">
                     <li>
-                        <a href="modules/module-1.html" class="text-blue-900 hover:underline font-medium flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition">
-                            <span>Module 1.0: Personal & Estate Foundation</span>
-                            <span>→</span>
+                        <a href="modules/module-1.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
+                            <div>
+                                <span class="block font-semibold">Module 1.0: Personal & Estate Foundation</span>
+                                <span class="text-xs text-gray-500">Core profile, primary residence, family roster, and professional contacts</span>
+                            </div>
+                            <span class="text-blue-900 font-bold">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modules/module-2.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
+                            <div>
+                                <span class="block font-semibold">Module 2.1: Physical Asset Register</span>
+                                <span class="text-xs text-gray-500">Real estate, vehicles, valuables, and jurisdictional location addresses</span>
+                            </div>
+                            <span class="text-blue-900 font-bold">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modules/module-2.2.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
+                            <div>
+                                <span class="block font-semibold">Module 2.2: Digital & Financial Vault</span>
+                                <span class="text-xs text-gray-500">Bank accounts, investments, digital credentials, and beneficiary linkages</span>
+                            </div>
+                            <span class="text-blue-900 font-bold">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modules/module-3.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
+                            <div>
+                                <span class="block font-semibold">Module 3.0: Legal & Fiduciary Representation</span>
+                                <span class="text-xs text-gray-500">Executors, POA designations, and legal counsel contact details</span>
+                            </div>
+                            <span class="text-blue-900 font-bold">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="modules/module-4.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
+                            <div>
+                                <span class="block font-semibold">Module 4.0: Directive & Memorial Planning</span>
+                                <span class="text-xs text-gray-500">Final disposition preferences, preneed contracts, and memorial venues</span>
+                            </div>
+                            <span class="text-blue-900 font-bold">→</span>
                         </a>
                     </li>
                 </ul>
