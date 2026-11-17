@@ -22,17 +22,31 @@
             <h2 class="text-2xl font-semibold mb-2 text-gray-800">Platform Access</h2>
             <p class="text-gray-600 mb-6">Secure end-to-end estate planning, secure vault storage, and professional roster assignments.</p>
             
-            <div id="login-container" class="space-y-4">
+            <!-- Auth Form Container -->
+            <div id="auth-container" class="space-y-4">
+                <!-- Tabs for Sign In vs Create Account -->
+                <div class="flex border-b border-gray-200 mb-4">
+                    <button type="button" id="tab-login" class="flex-1 py-2 text-center font-medium text-blue-900 border-b-2 border-blue-900 transition">Sign In</button>
+                    <button type="button" id="tab-signup" class="flex-1 py-2 text-center font-medium text-gray-500 hover:text-gray-700 transition">Create Account</button>
+                </div>
+
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                     <input type="email" id="email" placeholder="Enter your email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 </div>
-                <button id="login-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Send Magic Link</button>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <button id="auth-action-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Sign In</button>
             </div>
             <div id="message" class="mt-4 text-sm font-medium"></div>
 
             <div id="nav-modules" class="mt-8 hidden border-t border-gray-200 pt-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-4">Your Legacy Modules</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Your Legacy Modules</h3>
+                    <button id="logout-btn" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-3 py-1.5 rounded-lg border border-gray-300 transition">Sign Out</button>
+                </div>
                 <ul class="space-y-3">
                     <li>
                         <a href="modules/module-1.html" class="text-blue-900 hover:text-blue-700 font-medium flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-blue-300 transition shadow-sm">
@@ -91,40 +105,37 @@
     <script type="module">
         import { supabase } from './js/supabase-config.js';
 
-        const loginBtn = document.getElementById('login-btn');
+        const authActionBtn = document.getElementById('auth-action-btn');
         const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
         const messageDiv = document.getElementById('message');
         const authStatus = document.getElementById('auth-status');
         const navModules = document.getElementById('nav-modules');
-        const loginContainer = document.getElementById('login-container');
+        const authContainer = document.getElementById('auth-container');
+        const tabLogin = document.getElementById('tab-login');
+        const tabSignup = document.getElementById('tab-signup');
+        const logoutBtn = document.getElementById('logout-btn');
 
-        // Handle incoming token_hash from magic link redirect
-        async function handleAuthRedirect() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tokenHash = urlParams.get('token_hash');
-            const type = urlParams.get('type');
+        let isSignUpMode = false;
 
-            if (tokenHash && type) {
-                authStatus.textContent = 'Verifying login...';
-                const { data, error } = await supabase.auth.verifyOtp({
-                    token_hash: tokenHash,
-                    type: type
-                });
+        // Toggle between Sign In and Create Account modes
+        tabLogin.addEventListener('click', () => {
+            isSignUpMode = false;
+            tabLogin.className = 'flex-1 py-2 text-center font-medium text-blue-900 border-b-2 border-blue-900 transition';
+            tabSignup.className = 'flex-1 py-2 text-center font-medium text-gray-500 hover:text-gray-700 transition';
+            authActionBtn.textContent = 'Sign In';
+            messageDiv.textContent = '';
+        });
 
-                if (error) {
-                    authStatus.textContent = 'Verification failed';
-                    messageDiv.textContent = error.message;
-                    messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
-                } else if (data?.session) {
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    updateUIAfterLogin(data.session);
-                }
-            } else {
-                checkSession();
-            }
-        }
+        tabSignup.addEventListener('click', () => {
+            isSignUpMode = true;
+            tabSignup.className = 'flex-1 py-2 text-center font-medium text-blue-900 border-b-2 border-blue-900 transition';
+            tabLogin.className = 'flex-1 py-2 text-center font-medium text-gray-500 hover:text-gray-700 transition';
+            authActionBtn.textContent = 'Create Account';
+            messageDiv.textContent = '';
+        });
 
-        // Check active session on load
+        // Check active session on page load
         async function checkSession() {
             const { data: { session } } = await supabase.auth.getSession();
             if (session) {
@@ -134,40 +145,66 @@
 
         function updateUIAfterLogin(session) {
             authStatus.textContent = `Signed in: ${session.user.email}`;
-            loginContainer.innerHTML = `<p class="text-green-600 font-medium">You are securely authenticated.</p>`;
+            authContainer.classList.add('hidden');
             navModules.classList.remove('hidden');
         }
 
-        handleAuthRedirect();
+        checkSession();
 
-        // Handle Magic Link Login
-        loginBtn.addEventListener('click', async () => {
+        // Handle Sign In / Sign Up Action
+        authActionBtn.addEventListener('click', async () => {
             const email = emailInput.value.trim();
-            if (!email) {
-                messageDiv.textContent = 'Please enter a valid email address.';
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                messageDiv.textContent = 'Please enter both email and password.';
                 messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
                 return;
             }
 
-            loginBtn.disabled = true;
-            loginBtn.textContent = 'Sending link...';
+            authActionBtn.disabled = true;
+            authActionBtn.textContent = isSignUpMode ? 'Creating account...' : 'Signing in...';
+            messageDiv.textContent = '';
 
-            const { error } = await supabase.auth.signInWithOtp({ 
-                email,
-                options: {
-                    emailRedirectTo: 'https://griffinjtravis78.github.io/LLBProduction/'
+            if (isSignUpMode) {
+                const { data, error } = await supabase.auth.signUp({
+                    email,
+                    password
+                });
+
+                if (error) {
+                    messageDiv.textContent = error.message;
+                    messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
+                    authActionBtn.disabled = false;
+                    authActionBtn.textContent = 'Create Account';
+                } else {
+                    messageDiv.textContent = 'Account created successfully! You are now signed in.';
+                    messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                    if (data?.session) {
+                        updateUIAfterLogin(data.session);
+                    }
                 }
-            });
-
-            if (error) {
-                messageDiv.textContent = error.message;
-                messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
-                loginBtn.disabled = false;
-                loginBtn.textContent = 'Send Magic Link';
             } else {
-                messageDiv.textContent = 'Check your email for the login link!';
-                messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+                if (error) {
+                    messageDiv.textContent = error.message;
+                    messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
+                    authActionBtn.disabled = false;
+                    authActionBtn.textContent = 'Sign In';
+                } else if (data?.session) {
+                    updateUIAfterLogin(data.session);
+                }
             }
+        });
+
+        // Handle Logout
+        logoutBtn.addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            location.reload();
         });
     </script>
 </body>
