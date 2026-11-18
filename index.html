@@ -135,18 +135,19 @@
             messageDiv.textContent = '';
         });
 
+        function updateUIAfterLogin(session) {
+            if (!session || !session.user) return;
+            authStatus.textContent = `Signed in: ${session.user.email}`;
+            authContainer.style.display = 'none';
+            navModules.classList.remove('hidden');
+        }
+
         // Check active session on page load
         async function checkSession() {
             const { data: { session } } = await supabase.auth.getSession();
             if (session) {
                 updateUIAfterLogin(session);
             }
-        }
-
-        function updateUIAfterLogin(session) {
-            authStatus.textContent = `Signed in: ${session.user.email}`;
-            authContainer.classList.add('hidden');
-            navModules.classList.remove('hidden');
         }
 
         checkSession();
@@ -178,10 +179,19 @@
                     authActionBtn.disabled = false;
                     authActionBtn.textContent = 'Create Account';
                 } else {
-                    messageDiv.textContent = 'Account created successfully! You are now signed in.';
-                    messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
-                    if (data?.session) {
-                        updateUIAfterLogin(data.session);
+                    // Immediately authenticate after sign-up to capture the session
+                    const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({
+                        email,
+                        password
+                    });
+
+                    if (loginError) {
+                        messageDiv.textContent = 'Account created! Please switch to Sign In and log in.';
+                        messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                        authActionBtn.disabled = false;
+                        authActionBtn.textContent = 'Create Account';
+                    } else if (loginData?.session) {
+                        updateUIAfterLogin(loginData.session);
                     }
                 }
             } else {
