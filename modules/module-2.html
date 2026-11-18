@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 2.0: Vault Storage & Asset Inventory - Life's Legacy Blueprint</title>
+    <title>Module 2.1: Physical Asset Register - Life's Legacy Blueprint</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col justify-between">
@@ -23,7 +23,6 @@
             <p class="text-gray-600 mb-6">Catalog real estate properties, vehicles, collectibles, and valuable physical assets along with their jurisdictional locations.</p>
             
             <form id="module-2-form" class="space-y-6">
-                <!-- Sub-Component: Physical Assets -->
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-medium text-gray-800">Physical Assets & Real Estate</h3>
@@ -36,7 +35,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Asset Description</label>
-                                    <input type="text" placeholder="e.g., Primary Residence, 2024 Vehicle, Sterling Silver Collection" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="e.g., Primary Residence, 2024 Buick Encore" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Asset Category</label>
@@ -45,14 +44,14 @@
                                         <option value="Real Estate">Real Estate</option>
                                         <option value="Vehicle">Vehicle</option>
                                         <option value="Valuable Collectible / Jewelry">Valuable Collectible / Jewelry</option>
-                                        <option value="Other Physical Property">Other Physical Property</option>
+                                        <option value="Other Tangible Asset">Other Tangible Asset</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Value ($)</label>
-                                    <input type="text" placeholder="e.g., 250,000" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="number" placeholder="0.00" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Custodian / Storage Location</label>
@@ -87,6 +86,12 @@
                 <button type="submit" id="save-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Save Module 2.1 Data</button>
             </form>
             <div id="message" class="mt-4 text-sm font-medium"></div>
+
+            <!-- Global Module Navigation Bar (Hidden until save) -->
+            <div id="module-nav-bar" class="mt-6 pt-4 border-t border-gray-200 hidden flex justify-between items-center">
+                <a href="module-1.html" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-4 py-2 rounded-lg border border-gray-300 transition">← Previous: Module 1.0</a>
+                <a href="module-2.2.html" class="text-sm bg-blue-900 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition">Next: Module 2.2 →</a>
+            </div>
         </div>
     </main>
 
@@ -99,12 +104,12 @@
 
         const form = document.getElementById('module-2-form');
         const messageDiv = document.getElementById('message');
+        const moduleNavBar = document.getElementById('module-nav-bar');
         const assetContainer = document.getElementById('asset-container');
         const addAssetBtn = document.getElementById('add-asset-btn');
 
         const stateOptionsHTML = `<option value="">Select State</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>`;
 
-        // Add dynamic asset row
         addAssetBtn.addEventListener('click', () => {
             const rowCount = assetContainer.querySelectorAll('.asset-row').length + 1;
             const div = document.createElement('div');
@@ -117,47 +122,47 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Asset Description</label>
-                        <input type="text" placeholder="Asset description" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Asset Description" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Asset Category</label>
-                        <select class="asset-category w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <select class="asset-category w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             <option value="">Select Category</option>
                             <option value="Real Estate">Real Estate</option>
                             <option value="Vehicle">Vehicle</option>
                             <option value="Valuable Collectible / Jewelry">Valuable Collectible / Jewelry</option>
-                            <option value="Other Physical Property">Other Physical Property</option>
+                            <option value="Other Tangible Asset">Other Tangible Asset</option>
                         </select>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Value ($)</label>
-                        <input type="text" placeholder="e.g., 250,000" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="number" placeholder="0.00" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Custodian / Storage Location</label>
-                        <input type="text" placeholder="Custodian / Location" class="asset-custodian w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Storage location" class="asset-custodian w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Jurisdictional Street Address</label>
-                    <input type="text" placeholder="Street Address" class="asset-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                    <input type="text" placeholder="Street Address" class="asset-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                        <input type="text" placeholder="City" class="asset-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="City" class="asset-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                        <select class="asset-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <select class="asset-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             ${stateOptionsHTML}
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                        <input type="text" placeholder="ZIP Code" class="asset-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="ZIP Code" class="asset-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                 </div>
             `;
@@ -165,12 +170,11 @@
             assetContainer.appendChild(div);
         });
 
-        // Load existing saved data for module 2.0
         async function loadExistingData() {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) return;
 
-            const { data, error } = await supabase
+            const { data } = await supabase
                 .from('modules_data')
                 .select('payload')
                 .eq('tenant_id', session.user.id)
@@ -181,7 +185,7 @@
                 const assets = data.payload.physical_assets;
                 if (Array.isArray(assets) && assets.length > 0) {
                     assetContainer.innerHTML = '';
-                    assets.forEach((ast, index) => {
+                    assets.forEach((asset, index) => {
                         const div = document.createElement('div');
                         div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 asset-row relative';
                         div.innerHTML = `
@@ -192,47 +196,47 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Asset Description</label>
-                                    <input type="text" value="${ast.desc || ''}" placeholder="Asset description" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${asset.desc || ''}" placeholder="Asset Description" class="asset-desc w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Asset Category</label>
-                                    <select class="asset-category w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="asset-category w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select Category</option>
-                                        <option value="Real Estate" ${ast.category === 'Real Estate' ? 'selected' : ''}>Real Estate</option>
-                                        <option value="Vehicle" ${ast.category === 'Vehicle' ? 'selected' : ''}>Vehicle</option>
-                                        <option value="Valuable Collectible / Jewelry" ${ast.category === 'Valuable Collectible / Jewelry' ? 'selected' : ''}>Valuable Collectible / Jewelry</option>
-                                        <option value="Other Physical Property" ${ast.category === 'Other Physical Property' ? 'selected' : ''}>Other Physical Property</option>
+                                        <option value="Real Estate" ${asset.category === 'Real Estate' ? 'selected' : ''}>Real Estate</option>
+                                        <option value="Vehicle" ${asset.category === 'Vehicle' ? 'selected' : ''}>Vehicle</option>
+                                        <option value="Valuable Collectible / Jewelry" ${asset.category === 'Valuable Collectible / Jewelry' ? 'selected' : ''}>Valuable Collectible / Jewelry</option>
+                                        <option value="Other Tangible Asset" ${asset.category === 'Other Tangible Asset' ? 'selected' : ''}>Other Tangible Asset</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Estimated Value ($)</label>
-                                    <input type="text" value="${ast.value || ''}" placeholder="e.g., 250,000" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="number" value="${asset.value || ''}" placeholder="0.00" class="asset-value w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Custodian / Storage Location</label>
-                                    <input type="text" value="${ast.custodian || ''}" placeholder="Custodian / Location" class="asset-custodian w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${asset.custodian || ''}" placeholder="Storage location" class="asset-custodian w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Jurisdictional Street Address</label>
-                                <input type="text" value="${ast.street || ''}" placeholder="Street Address" class="asset-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                <input type="text" value="${asset.street || ''}" placeholder="Street Address" class="asset-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" value="${ast.city || ''}" placeholder="City" class="asset-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${asset.city || ''}" placeholder="City" class="asset-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="asset-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                        ${stateOptionsHTML.replace(`value="${ast.state}"`, `value="${ast.state}" selected`)}
+                                    <select class="asset-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+                                        ${stateOptionsHTML.replace(`value="${asset.state}"`, `value="${asset.state}" selected`)}
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" value="${ast.zip || ''}" placeholder="ZIP Code" class="asset-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${asset.zip || ''}" placeholder="ZIP Code" class="asset-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                         `;
@@ -246,7 +250,6 @@
 
         loadExistingData();
 
-        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -291,6 +294,7 @@
             } else {
                 messageDiv.textContent = 'Module 2.1 physical asset register saved successfully!';
                 messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                moduleNavBar.classList.remove('hidden');
             }
         });
     </script>
