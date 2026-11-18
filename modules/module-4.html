@@ -23,10 +23,9 @@
             <p class="text-gray-600 mb-6">Establish your final disposition preferences, preneed contracts, and memorial ceremony location instructions.</p>
             
             <form id="module-4-form" class="space-y-6">
-                <!-- Disposition Preferences -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Final Disposition Preference</label>
-                    <select id="disposition-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white" required>
+                    <select id="disposition-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white" required>
                         <option value="">Select Disposition Type</option>
                         <option value="Traditional Burial">Traditional Burial</option>
                         <option value="Cremation">Cremation</option>
@@ -37,36 +36,35 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Preneed Funeral Contract / Provider Details</label>
-                    <input type="text" id="preneed-details" placeholder="Name of funeral home, preneed contract number, or policy info" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <input type="text" id="preneed-details" placeholder="Name of funeral home, preneed contract number, or policy info" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                 </div>
 
-                <!-- Memorial Venue & Address -->
                 <div class="border-t border-gray-200 pt-4">
                     <h3 class="text-lg font-medium text-gray-800 mb-3">Memorial Service Venue Location</h3>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Venue / Facility Name</label>
-                            <input type="text" id="venue-name" placeholder="e.g., First Community Church or Memorial Park" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <input type="text" id="venue-name" placeholder="e.g., First Community Church or Memorial Park" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                            <input type="text" id="venue-street" placeholder="Street Address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <input type="text" id="venue-street" placeholder="Street Address" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                <input type="text" id="venue-city" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <input type="text" id="venue-city" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                <select id="venue-state" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                <select id="venue-state" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                     <option value="">Select State</option>
                                     <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                <input type="text" id="venue-zip" placeholder="ZIP Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <input type="text" id="venue-zip" placeholder="ZIP Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                             </div>
                         </div>
                     </div>
@@ -74,12 +72,18 @@
 
                 <div class="border-t border-gray-200 pt-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Special Instructions & Memorial Wishes</label>
-                    <textarea id="memorial-wishes" rows="4" placeholder="Music, readings, speakers, or specific charitable donations in lieu of flowers..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                    <textarea id="memorial-wishes" rows="4" placeholder="Music, readings, speakers, or specific charitable donations..." class="w-full px-4 py-2 border border-gray-300 rounded-lg"></textarea>
                 </div>
 
                 <button type="submit" id="save-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Save Module 4.0 Data</button>
             </form>
             <div id="message" class="mt-4 text-sm font-medium"></div>
+
+            <!-- Global Module Navigation Bar (Hidden until save) -->
+            <div id="module-nav-bar" class="mt-6 pt-4 border-t border-gray-200 hidden flex justify-between items-center">
+                <a href="module-3.html" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-4 py-2 rounded-lg border border-gray-300 transition">← Previous: Module 3.0</a>
+                <a href="../index.html" class="text-sm bg-blue-900 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition">Dashboard →</a>
+            </div>
         </div>
     </main>
 
@@ -92,13 +96,13 @@
 
         const form = document.getElementById('module-4-form');
         const messageDiv = document.getElementById('message');
+        const moduleNavBar = document.getElementById('module-nav-bar');
 
-        // Load existing saved data for module 4.0
         async function loadExistingData() {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) return;
 
-            const { data, error } = await supabase
+            const { data } = await supabase
                 .from('modules_data')
                 .select('payload')
                 .eq('tenant_id', session.user.id)
@@ -120,7 +124,6 @@
 
         loadExistingData();
 
-        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -158,6 +161,7 @@
             } else {
                 messageDiv.textContent = 'Module 4.0 Directive & Memorial Planning saved successfully!';
                 messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                moduleNavBar.classList.remove('hidden');
             }
         });
     </script>
