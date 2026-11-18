@@ -23,7 +23,6 @@
             <p class="text-gray-600 mb-6">Designate legal representatives, executors, powers of attorney (POA), and primary legal counsel locations.</p>
             
             <form id="module-3-form" class="space-y-6">
-                <!-- Sub-Component: Legal & Fiduciary Representatives -->
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-medium text-gray-800">Fiduciary & Legal Designations</h3>
@@ -36,11 +35,11 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Full Name / Firm</label>
-                                    <input type="text" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Fiduciary Role</label>
-                                    <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select Role</option>
                                         <option value="Executor / Personal Representative">Executor / Personal Representative</option>
                                         <option value="Durable Power of Attorney (Financial)">Durable Power of Attorney (Financial)</option>
@@ -53,32 +52,32 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                    <input type="text" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                    <input type="email" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="email" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                <input type="text" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                <input type="text" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select State</option>
                                         <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                         </div>
@@ -88,6 +87,12 @@
                 <button type="submit" id="save-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Save Module 3.0 Data</button>
             </form>
             <div id="message" class="mt-4 text-sm font-medium"></div>
+
+            <!-- Global Module Navigation Bar (Hidden until save) -->
+            <div id="module-nav-bar" class="mt-6 pt-4 border-t border-gray-200 hidden flex justify-between items-center">
+                <a href="module-2.2.html" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-4 py-2 rounded-lg border border-gray-300 transition">← Previous: Module 2.2</a>
+                <a href="module-4.html" class="text-sm bg-blue-900 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition">Next: Module 4.0 →</a>
+            </div>
         </div>
     </main>
 
@@ -100,12 +105,12 @@
 
         const form = document.getElementById('module-3-form');
         const messageDiv = document.getElementById('message');
+        const moduleNavBar = document.getElementById('module-nav-bar');
         const fiduciaryContainer = document.getElementById('fiduciary-container');
         const addFiduciaryBtn = document.getElementById('add-fiduciary-btn');
 
         const stateOptionsHTML = `<option value="">Select State</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>`;
 
-        // Add dynamic fiduciary row
         addFiduciaryBtn.addEventListener('click', () => {
             const rowCount = fiduciaryContainer.querySelectorAll('.fiduciary-row').length + 1;
             const div = document.createElement('div');
@@ -118,11 +123,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Full Name / Firm</label>
-                        <input type="text" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Fiduciary Role</label>
-                        <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             <option value="">Select Role</option>
                             <option value="Executor / Personal Representative">Executor / Personal Representative</option>
                             <option value="Durable Power of Attorney (Financial)">Durable Power of Attorney (Financial)</option>
@@ -135,31 +140,31 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="text" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="email" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                    <input type="text" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                    <input type="text" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                        <input type="text" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                        <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             ${stateOptionsHTML}
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                        <input type="text" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                 </div>
             `;
@@ -167,12 +172,11 @@
             fiduciaryContainer.appendChild(div);
         });
 
-        // Load existing saved data for module 3.0
         async function loadExistingData() {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) return;
 
-            const { data, error } = await supabase
+            const { data } = await supabase
                 .from('modules_data')
                 .select('payload')
                 .eq('tenant_id', session.user.id)
@@ -194,11 +198,11 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Full Name / Firm</label>
-                                    <input type="text" value="${rep.name || ''}" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${rep.name || ''}" placeholder="Representative name or law firm" class="fid-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Fiduciary Role</label>
-                                    <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="fid-role w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select Role</option>
                                         <option value="Executor / Personal Representative" ${rep.role === 'Executor / Personal Representative' ? 'selected' : ''}>Executor / Personal Representative</option>
                                         <option value="Durable Power of Attorney (Financial)" ${rep.role === 'Durable Power of Attorney (Financial)' ? 'selected' : ''}>Durable Power of Attorney (Financial)</option>
@@ -211,31 +215,31 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                    <input type="text" value="${rep.phone || ''}" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${rep.phone || ''}" placeholder="(555) 000-0000" class="fid-phone w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                    <input type="email" value="${rep.email || ''}" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="email" value="${rep.email || ''}" placeholder="representative@example.com" class="fid-email w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                <input type="text" value="${rep.street || ''}" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                <input type="text" value="${rep.street || ''}" placeholder="Street Address" class="fid-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" value="${rep.city || ''}" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${rep.city || ''}" placeholder="City" class="fid-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="fid-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         ${stateOptionsHTML.replace(`value="${rep.state}"`, `value="${rep.state}" selected`)}
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" value="${rep.zip || ''}" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${rep.zip || ''}" placeholder="ZIP Code" class="fid-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                         `;
@@ -249,7 +253,6 @@
 
         loadExistingData();
 
-        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -294,6 +297,7 @@
             } else {
                 messageDiv.textContent = 'Module 3.0 Legal & Fiduciary Representation saved successfully!';
                 messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                moduleNavBar.classList.remove('hidden');
             }
         });
     </script>
