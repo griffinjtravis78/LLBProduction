@@ -20,111 +20,110 @@
     <main class="max-w-3xl mx-auto px-4 py-12 flex-grow w-full">
         <div class="bg-white shadow rounded-lg p-8 border border-gray-200">
             <h2 class="text-2xl font-semibold mb-2 text-gray-800">Module 1.0: Personal & Estate Foundation</h2>
-            <p class="text-gray-600 mb-6">Establish your core profile details, primary residence, family roster, and professional contacts to initialize your legacy blueprint.</p>
+            <p class="text-gray-600 mb-6">Establish your core profile, primary residence, family roster, and professional contacts to initialize your legacy blueprint.</p>
             
             <form id="module-1-form" class="space-y-6">
+                <!-- Personal Profile -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Primary Legal Name</label>
-                    <input type="text" id="legal-name" placeholder="Enter your full legal name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                    <input type="text" id="legal-name" placeholder="Full Legal Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
 
-                <!-- Standardized 4-Part Address Section: Primary Residence -->
+                <!-- Primary Residence Address -->
                 <div class="border-t border-gray-200 pt-4">
                     <h3 class="text-lg font-medium text-gray-800 mb-3">Primary Residence Address</h3>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                            <input type="text" id="street-address" placeholder="123 Legacy Lane" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                            <input type="text" id="res-street" placeholder="Street Address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                <input type="text" id="city" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                                <input type="text" id="res-city" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                <select id="state" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white" required>
+                                <select id="res-state" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white" required>
                                     <option value="">Select State</option>
                                     <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                <input type="text" id="zip" placeholder="Zip Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                                <input type="text" id="res-zip" placeholder="ZIP Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sub-Component: Immediate Family Members -->
-                <div class="border-t border-gray-200 pt-6">
-                    <div class="flex justify-between items-center mb-4">
+                <!-- Family Roster -->
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex justify-between items-center mb-3">
                         <h3 class="text-lg font-medium text-gray-800">Immediate Family Members</h3>
                         <button type="button" id="add-family-btn" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-3 py-1.5 rounded-lg border border-gray-300 transition">+ Add Family Member</button>
                     </div>
-                    
                     <div id="family-container" class="space-y-4">
                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 family-row">
                             <h4 class="text-sm font-semibold text-gray-700">Family Member 1</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                    <input type="text" placeholder="Family member's full name" class="family-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="Family member's full name" class="fam-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label>
-                                    <input type="text" placeholder="e.g., Spouse, Child" class="family-relationship w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="e.g., Spouse, Child" class="fam-relation w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                <input type="text" placeholder="Street Address" class="family-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                <input type="text" placeholder="Street Address" class="fam-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" placeholder="City" class="family-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="City" class="fam-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="family-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="fam-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                         <option value="">Select State</option>
                                         <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" placeholder="ZIP Code" class="family-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="ZIP Code" class="fam-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sub-Component: Professional & Fiduciary Contacts -->
-                <div class="border-t border-gray-200 pt-6">
-                    <div class="flex justify-between items-center mb-4">
+                <!-- Professional Contacts -->
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex justify-between items-center mb-3">
                         <h3 class="text-lg font-medium text-gray-800">Professional & Fiduciary Contacts</h3>
                         <button type="button" id="add-prof-btn" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-3 py-1.5 rounded-lg border border-gray-300 transition">+ Add Professional</button>
                     </div>
-                    
                     <div id="prof-container" class="space-y-4">
                         <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 prof-row">
                             <h4 class="text-sm font-semibold text-gray-700">Professional Contact 1</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Professional / Firm Name</label>
-                                    <input type="text" placeholder="Name or Practice" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="Name or Firm" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Role / Specialization</label>
                                     <select class="prof-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                        <option value="">Select Role</option>
+                                        <option value="">Select Specialization</option>
                                         <option value="Primary Physician">Primary Physician</option>
                                         <option value="Attorney / Legal Counsel">Attorney / Legal Counsel</option>
-                                        <option value="CPA / Accountant">CPA / Accountant</option>
-                                        <option value="Financial Advisor">Financial Advisor</option>
-                                        <option value="Executor / Fiduciary">Executor / Fiduciary</option>
+                                        <option value="CPA / Financial Advisor">CPA / Financial Advisor</option>
+                                        <option value="Insurance Agent">Insurance Agent</option>
+                                        <option value="Clergy / Spiritual Leader">Clergy / Spiritual Leader</option>
                                     </select>
                                 </div>
                             </div>
@@ -135,7 +134,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                    <input type="email" placeholder="professional@example.com" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="email" placeholder="email@example.com" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                                 </div>
                             </div>
                             <div>
@@ -163,14 +162,21 @@
                     </div>
                 </div>
 
+                <!-- Estate Objectives -->
                 <div class="border-t border-gray-200 pt-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Current Estate Objectives</label>
-                    <textarea id="objectives" rows="4" placeholder="Describe your primary estate goals..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                    <textarea id="estate-objectives" rows="3" placeholder="Describe your primary estate goals..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                 </div>
 
                 <button type="submit" id="save-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Save Module Data</button>
             </form>
             <div id="message" class="mt-4 text-sm font-medium"></div>
+
+            <!-- Global Module Navigation Bar (Hidden until save) -->
+            <div id="module-nav-bar" class="mt-6 pt-4 border-t border-gray-200 hidden flex justify-between items-center">
+                <a href="../index.html" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-4 py-2 rounded-lg border border-gray-300 transition">← Dashboard</a>
+                <a href="module-2.html" class="text-sm bg-blue-900 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition">Next: Module 2.1 →</a>
+            </div>
         </div>
     </main>
 
@@ -183,251 +189,117 @@
 
         const form = document.getElementById('module-1-form');
         const messageDiv = document.getElementById('message');
+        const moduleNavBar = document.getElementById('module-nav-bar');
         const familyContainer = document.getElementById('family-container');
         const addFamilyBtn = document.getElementById('add-family-btn');
         const profContainer = document.getElementById('prof-container');
         const addProfBtn = document.getElementById('add-prof-btn');
 
-        // State options helper
         const stateOptionsHTML = `<option value="">Select State</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>`;
 
-        // Add dynamic family member row
         addFamilyBtn.addEventListener('click', () => {
-            const rowCount = familyContainer.querySelectorAll('.family-row').length + 1;
+            const count = familyContainer.querySelectorAll('.family-row').length + 1;
             const div = document.createElement('div');
             div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 family-row relative';
             div.innerHTML = `
-                <div class="flex justify-between items-center">
-                    <h4 class="text-sm font-semibold text-gray-700">Family Member ${rowCount}</h4>
-                    <button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>
-                </div>
+                <div class="flex justify-between items-center"><h4 class="text-sm font-semibold text-gray-700">Family Member ${count}</h4><button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                        <input type="text" placeholder="Family member's full name" class="family-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label>
-                        <input type="text" placeholder="e.g., Spouse, Child" class="family-relationship w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label><input type="text" placeholder="Full name" class="fam-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label><input type="text" placeholder="Relationship" class="fam-relation w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                    <input type="text" placeholder="Street Address" class="family-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                </div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label><input type="text" placeholder="Street Address" class="fam-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                        <input type="text" placeholder="City" class="family-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                        <select class="family-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            ${stateOptionsHTML}
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                        <input type="text" placeholder="ZIP Code" class="family-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                </div>
-            `;
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">City</label><input type="text" placeholder="City" class="fam-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">State</label><select class="fam-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">${stateOptionsHTML}</select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label><input type="text" placeholder="ZIP Code" class="fam-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                </div>`;
             div.querySelector('.remove-row').addEventListener('click', () => div.remove());
             familyContainer.appendChild(div);
         });
 
-        // Add dynamic professional contact row
         addProfBtn.addEventListener('click', () => {
-            const rowCount = profContainer.querySelectorAll('.prof-row').length + 1;
+            const count = profContainer.querySelectorAll('.prof-row').length + 1;
             const div = document.createElement('div');
             div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 prof-row relative';
             div.innerHTML = `
-                <div class="flex justify-between items-center">
-                    <h4 class="text-sm font-semibold text-gray-700">Professional Contact ${rowCount}</h4>
-                    <button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>
+                <div class="flex justify-between items-center"><h4 class="text-sm font-semibold text-gray-700">Professional Contact ${count}</h4><button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Professional / Firm Name</label><input type="text" placeholder="Name or Firm" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Role / Specialization</label><select class="prof-role w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"><option value="">Select Specialization</option><option value="Primary Physician">Primary Physician</option><option value="Attorney / Legal Counsel">Attorney / Legal Counsel</option><option value="CPA / Financial Advisor">CPA / Financial Advisor</option><option value="Insurance Agent">Insurance Agent</option><option value="Clergy / Spiritual Leader">Clergy / Spiritual Leader</option></select></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Professional / Firm Name</label>
-                        <input type="text" placeholder="Name or Practice" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Role / Specialization</label>
-                        <select class="prof-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            <option value="">Select Role</option>
-                            <option value="Primary Physician">Primary Physician</option>
-                            <option value="Attorney / Legal Counsel">Attorney / Legal Counsel</option>
-                            <option value="CPA / Accountant">CPA / Accountant</option>
-                            <option value="Financial Advisor">Financial Advisor</option>
-                            <option value="Executor / Fiduciary">Executor / Fiduciary</option>
-                        </select>
-                    </div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label><input type="text" placeholder="Phone" class="prof-phone w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label><input type="email" placeholder="Email" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="text" placeholder="(555) 000-0000" class="prof-phone w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" placeholder="professional@example.com" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                    <input type="text" placeholder="Street Address" class="prof-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                </div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label><input type="text" placeholder="Street Address" class="prof-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                        <input type="text" placeholder="City" class="prof-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                        <select class="prof-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            ${stateOptionsHTML}
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                        <input type="text" placeholder="ZIP Code" class="prof-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                    </div>
-                </div>
-            `;
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">City</label><input type="text" placeholder="City" class="prof-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">State</label><select class="prof-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">${stateOptionsHTML}</select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label><input type="text" placeholder="ZIP Code" class="prof-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                </div>`;
             div.querySelector('.remove-row').addEventListener('click', () => div.remove());
             profContainer.appendChild(div);
         });
 
-        // Load existing saved data on page load
         async function loadExistingData() {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) return;
-
-            const { data, error } = await supabase
-                .from('modules_data')
-                .select('payload')
-                .eq('tenant_id', session.user.id)
-                .eq('module_number', 1.0)
-                .maybeSingle();
-
+            const { data } = await supabase.from('modules_data').select('payload').eq('tenant_id', session.user.id).eq('module_number', 1.0).maybeSingle();
             if (data && data.payload) {
                 const p = data.payload;
                 if (p.legal_name) document.getElementById('legal-name').value = p.legal_name;
-                if (p.street_address) document.getElementById('street-address').value = p.street_address;
-                if (p.city) document.getElementById('city').value = p.city;
-                if (p.state) document.getElementById('state').value = p.state;
-                if (p.zip) document.getElementById('zip').value = p.zip;
-                if (p.objectives) document.getElementById('objectives').value = p.objectives;
-
-                // Load family members if present
-                if (p.family_members && Array.isArray(p.family_members) && p.family_members.length > 0) {
+                if (p.residence) {
+                    document.getElementById('res-street').value = p.residence.street || '';
+                    document.getElementById('res-city').value = p.residence.city || '';
+                    document.getElementById('res-state').value = p.residence.state || '';
+                    document.getElementById('res-zip').value = p.residence.zip || '';
+                }
+                if (p.estate_objectives) document.getElementById('estate-objectives').value = p.estate_objectives;
+                if (Array.isArray(p.family_members) && p.family_members.length > 0) {
                     familyContainer.innerHTML = '';
-                    p.family_members.forEach((fam, index) => {
+                    p.family_members.forEach((fam, idx) => {
                         const div = document.createElement('div');
                         div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 family-row relative';
                         div.innerHTML = `
-                            <div class="flex justify-between items-center">
-                                <h4 class="text-sm font-semibold text-gray-700">Family Member ${index + 1}</h4>
-                                ${index > 0 ? '<button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>' : ''}
-                            </div>
+                            <div class="flex justify-between items-center"><h4 class="text-sm font-semibold text-gray-700">Family Member ${idx + 1}</h4>${idx > 0 ? '<button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>' : ''}</div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                    <input type="text" value="${fam.name || ''}" placeholder="Family member's full name" class="family-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label>
-                                    <input type="text" value="${fam.relationship || ''}" placeholder="e.g., Spouse, Child" class="family-relationship w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label><input type="text" value="${fam.name || ''}" class="fam-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Relationship</label><input type="text" value="${fam.relationship || ''}" class="fam-relation w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                <input type="text" value="${fam.street || ''}" placeholder="Street Address" class="family-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            </div>
+                            <div><label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label><input type="text" value="${fam.street || ''}" class="fam-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" value="${fam.city || ''}" placeholder="City" class="family-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="family-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                        ${stateOptionsHTML.replace(`value="${fam.state}"`, `value="${fam.state}" selected`)}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" value="${fam.zip || ''}" placeholder="ZIP Code" class="family-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                            </div>
-                        `;
-                        const removeBtn = div.querySelector('.remove-row');
-                        if (removeBtn) removeBtn.addEventListener('click', () => div.remove());
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">City</label><input type="text" value="${fam.city || ''}" class="fam-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">State</label><select class="fam-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">${stateOptionsHTML.replace(`value="${fam.state}"`, `value="${fam.state}" selected`)}</select></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label><input type="text" value="${fam.zip || ''}" class="fam-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                            </div>`;
+                        const rm = div.querySelector('.remove-row');
+                        if (rm) rm.addEventListener('click', () => div.remove());
                         familyContainer.appendChild(div);
                     });
                 }
-
-                // Load professional contacts if present
-                if (p.professional_contacts && Array.isArray(p.professional_contacts) && p.professional_contacts.length > 0) {
+                if (Array.isArray(p.professional_contacts) && p.professional_contacts.length > 0) {
                     profContainer.innerHTML = '';
-                    p.professional_contacts.forEach((prof, index) => {
+                    p.professional_contacts.forEach((prof, idx) => {
                         const div = document.createElement('div');
                         div.className = 'p-4 bg-gray-50 rounded-lg border border-gray-200 space-y-4 prof-row relative';
                         div.innerHTML = `
-                            <div class="flex justify-between items-center">
-                                <h4 class="text-sm font-semibold text-gray-700">Professional Contact ${index + 1}</h4>
-                                ${index > 0 ? '<button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>' : ''}
+                            <div class="flex justify-between items-center"><h4 class="text-sm font-semibold text-gray-700">Professional Contact ${idx + 1}</h4>${idx > 0 ? '<button type="button" class="remove-row text-xs text-red-600 hover:underline">Remove</button>' : ''}</div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Professional / Firm Name</label><input type="text" value="${prof.name || ''}" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Role / Specialization</label><select class="prof-role w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"><option value="">Select Specialization</option><option value="Primary Physician" ${prof.role==='Primary Physician'?'selected':''}>Primary Physician</option><option value="Attorney / Legal Counsel" ${prof.role==='Attorney / Legal Counsel'?'selected':''}>Attorney / Legal Counsel</option><option value="CPA / Financial Advisor" ${prof.role==='CPA / Financial Advisor'?'selected':''}>CPA / Financial Advisor</option><option value="Insurance Agent" ${prof.role==='Insurance Agent'?'selected':''}>Insurance Agent</option><option value="Clergy / Spiritual Leader" ${prof.role==='Clergy / Spiritual Leader'?'selected':''}>Clergy / Spiritual Leader</option></select></div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Professional / Firm Name</label>
-                                    <input type="text" value="${prof.name || ''}" placeholder="Name or Practice" class="prof-name w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Role / Specialization</label>
-                                    <select class="prof-role w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                        <option value="">Select Role</option>
-                                        <option value="Primary Physician" ${prof.role === 'Primary Physician' ? 'selected' : ''}>Primary Physician</option>
-                                        <option value="Attorney / Legal Counsel" ${prof.role === 'Attorney / Legal Counsel' ? 'selected' : ''}>Attorney / Legal Counsel</option>
-                                        <option value="CPA / Accountant" ${prof.role === 'CPA / Accountant' ? 'selected' : ''}>CPA / Accountant</option>
-                                        <option value="Financial Advisor" ${prof.role === 'Financial Advisor' ? 'selected' : ''}>Financial Advisor</option>
-                                        <option value="Executor / Fiduciary" ${prof.role === 'Executor / Fiduciary' ? 'selected' : ''}>Executor / Fiduciary</option>
-                                    </select>
-                                </div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label><input type="text" value="${prof.phone || ''}" class="prof-phone w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label><input type="email" value="${prof.email || ''}" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                    <input type="text" value="${prof.phone || ''}" placeholder="(555) 000-0000" class="prof-phone w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                                    <input type="email" value="${prof.email || ''}" placeholder="professional@example.com" class="prof-email w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                                <input type="text" value="${prof.street || ''}" placeholder="Street Address" class="prof-street w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            </div>
+                            <div><label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label><input type="text" value="${prof.street || ''}" class="prof-street w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                                    <input type="text" value="${prof.city || ''}" placeholder="City" class="prof-city w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                                    <select class="prof-state w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                        ${stateOptionsHTML.replace(`value="${prof.state}"`, `value="${prof.state}" selected`)}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
-                                    <input type="text" value="${prof.zip || ''}" placeholder="ZIP Code" class="prof-zip w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                                </div>
-                            </div>
-                        `;
-                        const removeBtn = div.querySelector('.remove-row');
-                        if (removeBtn) removeBtn.addEventListener('click', () => div.remove());
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">City</label><input type="text" value="${prof.city || ''}" class="prof-city w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">State</label><select class="prof-state w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">${stateOptionsHTML.replace(`value="${prof.state}"`, `value="${prof.state}" selected`)}</select></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label><input type="text" value="${prof.zip || ''}" class="prof-zip w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></div>
+                            </div>`;
+                        const rm = div.querySelector('.remove-row');
+                        if (rm) rm.addEventListener('click', () => div.remove());
                         profContainer.appendChild(div);
                     });
                 }
@@ -436,33 +308,29 @@
 
         loadExistingData();
 
-        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) {
-                messageDiv.textContent = 'Error: You must be signed in to save data.';
+                messageDiv.textContent = 'Error: You must be signed in.';
                 messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
                 return;
             }
 
-            // Collect family members array
             const familyMembers = [];
-            document.querySelectorAll('.family-row').forEach(row => {
+            familyContainer.querySelectorAll('.family-row').forEach(row => {
                 familyMembers.push({
-                    name: row.querySelector('.family-name').value.trim(),
-                    relationship: row.querySelector('.family-relationship').value.trim(),
-                    street: row.querySelector('.family-street').value.trim(),
-                    city: row.querySelector('.family-city').value.trim(),
-                    state: row.querySelector('.family-state').value,
-                    zip: row.querySelector('.family-zip').value.trim()
+                    name: row.querySelector('.fam-name').value.trim(),
+                    relationship: row.querySelector('.fam-relation').value.trim(),
+                    street: row.querySelector('.fam-street').value.trim(),
+                    city: row.querySelector('.fam-city').value.trim(),
+                    state: row.querySelector('.fam-state').value,
+                    zip: row.querySelector('.fam-zip').value.trim()
                 });
             });
 
-            // Collect professional contacts array
             const professionalContacts = [];
-            document.querySelectorAll('.prof-row').forEach(row => {
+            profContainer.querySelectorAll('.prof-row').forEach(row => {
                 professionalContacts.push({
                     name: row.querySelector('.prof-name').value.trim(),
                     role: row.querySelector('.prof-role').value,
@@ -477,31 +345,32 @@
 
             const payloadData = {
                 legal_name: document.getElementById('legal-name').value.trim(),
-                street_address: document.getElementById('street-address').value.trim(),
-                city: document.getElementById('city').value.trim(),
-                state: document.getElementById('state').value,
-                zip: document.getElementById('zip').value.trim(),
+                residence: {
+                    street: document.getElementById('res-street').value.trim(),
+                    city: document.getElementById('res-city').value.trim(),
+                    state: document.getElementById('res-state').value,
+                    zip: document.getElementById('res-zip').value.trim()
+                },
                 family_members: familyMembers,
                 professional_contacts: professionalContacts,
-                objectives: document.getElementById('objectives').value.trim(),
+                estate_objectives: document.getElementById('estate-objectives').value.trim(),
                 updated_at: new Date().toISOString()
             };
 
-            const { error } = await supabase
-                .from('modules_data')
-                .upsert({
-                    tenant_id: session.user.id,
-                    module_number: 1.0,
-                    payload: payloadData,
-                    updated_at: new Date().toISOString()
-                }, { onConflict: 'tenant_id,module_number' });
+            const { error } = await supabase.from('modules_data').upsert({
+                tenant_id: session.user.id,
+                module_number: 1.0,
+                payload: payloadData,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'tenant_id,module_number' });
 
             if (error) {
                 messageDiv.textContent = 'Error saving data: ' + error.message;
                 messageDiv.className = 'mt-4 text-sm font-medium text-red-600';
             } else {
-                messageDiv.textContent = 'Module 1.0 foundation, family roster, and professional contacts saved successfully!';
+                messageDiv.textContent = 'Module 1.0 Foundation saved successfully!';
                 messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                moduleNavBar.classList.remove('hidden');
             }
         });
     </script>
