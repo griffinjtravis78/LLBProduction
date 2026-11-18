@@ -23,7 +23,6 @@
             <p class="text-gray-600 mb-6">Securely catalog financial accounts, investment portfolios, digital credentials, and designated beneficiary assignments.</p>
             
             <form id="module-2-2-form" class="space-y-6">
-                <!-- Sub-Component: Financial & Digital Accounts -->
                 <div>
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-medium text-gray-800">Financial Accounts & Digital Assets</h3>
@@ -36,11 +35,11 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Institution / Platform Name</label>
-                                    <input type="text" placeholder="e.g., Chase Bank, Fidelity, Google Workspace" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="e.g., Chase Bank, Fidelity, Google Workspace" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Account / Asset Type</label>
-                                    <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select Type</option>
                                         <option value="Checking / Savings">Checking / Savings</option>
                                         <option value="Investment / Brokerage">Investment / Brokerage</option>
@@ -54,16 +53,16 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Account Identifier / Username</label>
-                                    <input type="text" placeholder="Account Number or Username ( masked )" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="Account Number or Username" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Designated Beneficiary</label>
-                                    <input type="text" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Access Notes / Instructions</label>
-                                <textarea rows="2" placeholder="Where are physical documents stored or how is access managed..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"></textarea>
+                                <textarea rows="2" placeholder="Access notes..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></textarea>
                             </div>
                         </div>
                     </div>
@@ -72,6 +71,12 @@
                 <button type="submit" id="save-btn" class="w-full bg-blue-900 text-white font-medium py-2 rounded-lg hover:bg-blue-800 transition">Save Module 2.2 Data</button>
             </form>
             <div id="message" class="mt-4 text-sm font-medium"></div>
+
+            <!-- Global Module Navigation Bar (Hidden until save) -->
+            <div id="module-nav-bar" class="mt-6 pt-4 border-t border-gray-200 hidden flex justify-between items-center">
+                <a href="module-2.html" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-4 py-2 rounded-lg border border-gray-300 transition">← Previous: Module 2.1</a>
+                <a href="module-3.html" class="text-sm bg-blue-900 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-lg transition">Next: Module 3.0 →</a>
+            </div>
         </div>
     </main>
 
@@ -84,10 +89,10 @@
 
         const form = document.getElementById('module-2-2-form');
         const messageDiv = document.getElementById('message');
+        const moduleNavBar = document.getElementById('module-nav-bar');
         const accountContainer = document.getElementById('account-container');
         const addAccountBtn = document.getElementById('add-account-btn');
 
-        // Add dynamic account row
         addAccountBtn.addEventListener('click', () => {
             const rowCount = accountContainer.querySelectorAll('.account-row').length + 1;
             const div = document.createElement('div');
@@ -100,11 +105,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Institution / Platform Name</label>
-                        <input type="text" placeholder="Institution Name" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Institution Name" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Account / Asset Type</label>
-                        <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                             <option value="">Select Type</option>
                             <option value="Checking / Savings">Checking / Savings</option>
                             <option value="Investment / Brokerage">Investment / Brokerage</option>
@@ -118,28 +123,27 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Account Identifier / Username</label>
-                        <input type="text" placeholder="Account Number or Username" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Account Number or Username" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Designated Beneficiary</label>
-                        <input type="text" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                        <input type="text" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Access Notes / Instructions</label>
-                    <textarea rows="2" placeholder="Access notes..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"></textarea>
+                    <textarea rows="2" placeholder="Access notes..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"></textarea>
                 </div>
             `;
             div.querySelector('.remove-row').addEventListener('click', () => div.remove());
             accountContainer.appendChild(div);
         });
 
-        // Load existing saved data for module 2.2
         async function loadExistingData() {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) return;
 
-            const { data, error } = await supabase
+            const { data } = await supabase
                 .from('modules_data')
                 .select('payload')
                 .eq('tenant_id', session.user.id)
@@ -161,11 +165,11 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Institution / Platform Name</label>
-                                    <input type="text" value="${acc.institution || ''}" placeholder="Institution Name" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${acc.institution || ''}" placeholder="Institution Name" class="acc-institution w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Account / Asset Type</label>
-                                    <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <select class="acc-type w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                         <option value="">Select Type</option>
                                         <option value="Checking / Savings" ${acc.type === 'Checking / Savings' ? 'selected' : ''}>Checking / Savings</option>
                                         <option value="Investment / Brokerage" ${acc.type === 'Investment / Brokerage' ? 'selected' : ''}>Investment / Brokerage</option>
@@ -179,16 +183,16 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Account Identifier / Username</label>
-                                    <input type="text" value="${acc.identifier || ''}" placeholder="Account Number or Username" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${acc.identifier || ''}" placeholder="Account Number or Username" class="acc-identifier w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Designated Beneficiary</label>
-                                    <input type="text" value="${acc.beneficiary || ''}" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
+                                    <input type="text" value="${acc.beneficiary || ''}" placeholder="Name of Beneficiary" class="acc-beneficiary w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Access Notes / Instructions</label>
-                                <textarea rows="2" placeholder="Access notes..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">${acc.notes || ''}</textarea>
+                                <textarea rows="2" placeholder="Access notes..." class="acc-notes w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">${acc.notes || ''}</textarea>
                             </div>
                         `;
                         const removeBtn = div.querySelector('.remove-row');
@@ -201,7 +205,6 @@
 
         loadExistingData();
 
-        // Handle form submission and upsert into Supabase modules_data table
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -243,6 +246,7 @@
             } else {
                 messageDiv.textContent = 'Module 2.2 Digital & Financial Vault saved successfully!';
                 messageDiv.className = 'mt-4 text-sm font-medium text-green-600';
+                moduleNavBar.classList.remove('hidden');
             }
         });
     </script>
